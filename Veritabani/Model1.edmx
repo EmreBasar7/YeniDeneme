@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="projeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adres">
+          <Key>
+            <PropertyRef Name="AdresID" />
+          </Key>
+          <Property Name="AdresID" Type="int" Nullable="false" />
+          <Property Name="Şehir" Type="nchar" MaxLength="10" />
+          <Property Name="Mahalle" Type="nchar" MaxLength="10" />
+          <Property Name="Sokak" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Bildirimler">
+          <Key>
+            <PropertyRef Name="BildirimID" />
+          </Key>
+          <Property Name="BildirimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Açıklama" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Hayvanlar">
+          <Key>
+            <PropertyRef Name="HayvanID" />
+          </Key>
+          <Property Name="HayvanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tur" Type="nvarchar" MaxLength="50" />
+          <Property Name="Yas" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kilo" Type="nvarchar" MaxLength="50" />
+          <Property Name="SağlıkDurumu" Type="nvarchar" MaxLength="50" />
+          <Property Name="AşıDurumu" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Kullanıcılar">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAd" Type="nchar" MaxLength="10" />
+          <Property Name="KullaniciSoyad" Type="nchar" MaxLength="10" />
+          <Property Name="KullaniciSifre" Type="nchar" MaxLength="10" />
+          <Property Name="KullaniciGirisad" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Mahalleler">
+          <Key>
+            <PropertyRef Name="MahalleID" />
+          </Key>
+          <Property Name="MahalleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MahalleAdı" Type="nchar" MaxLength="50" />
+          <Property Name="YemekTürü" Type="nchar" MaxLength="50" />
+          <Property Name="YemekMiktarı_KG" Type="int" />
+        </EntityType>
+        <EntityType Name="Sehirler">
+          <Key>
+            <PropertyRef Name="SehirID" />
+          </Key>
+          <Property Name="SehirID" Type="int" Nullable="false" />
+          <Property Name="SehirAD" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Veterinerler">
+          <Key>
+            <PropertyRef Name="VeterinerID" />
+          </Key>
+          <Property Name="VeterinerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VeterinerAd" Type="nchar" MaxLength="10" />
+          <Property Name="VeterinerKonum" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Yemekler">
+          <Key>
+            <PropertyRef Name="YemekID" />
+          </Key>
+          <Property Name="YemekID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YemekTur" Type="nchar" MaxLength="50" />
+          <Property Name="YemekMiktar(KG)" Type="int" />
+        </EntityType>
+        <EntityType Name="Yoneticiler">
+          <Key>
+            <PropertyRef Name="YoneticiID" />
+          </Key>
+          <Property Name="YoneticiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YoneticiAd" Type="nchar" MaxLength="10" />
+          <Property Name="YoneticiSoyad" Type="nchar" MaxLength="10" />
+          <Property Name="YoneticiSifre" Type="nchar" MaxLength="10" />
+          <Property Name="YoneticiGirisAd" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityContainer Name="projeModelStoreContainer">
+          <EntitySet Name="Adres" EntityType="Self.Adres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bildirimler" EntityType="Self.Bildirimler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hayvanlar" EntityType="Self.Hayvanlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanıcılar" EntityType="Self.Kullanıcılar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mahalleler" EntityType="Self.Mahalleler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sehirler" EntityType="Self.Sehirler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Veterinerler" EntityType="Self.Veterinerler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yemekler" EntityType="Self.Yemekler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yoneticiler" EntityType="Self.Yoneticiler" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="projeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adres">
+          <Key>
+            <PropertyRef Name="AdresID" />
+          </Key>
+          <Property Name="AdresID" Type="Int32" Nullable="false" />
+          <Property Name="Şehir" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Mahalle" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Sokak" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Bildirimler">
+          <Key>
+            <PropertyRef Name="BildirimID" />
+          </Key>
+          <Property Name="BildirimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Açıklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Hayvanlar">
+          <Key>
+            <PropertyRef Name="HayvanID" />
+          </Key>
+          <Property Name="HayvanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Yas" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kilo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SağlıkDurumu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AşıDurumu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Kullanıcılar">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAd" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="KullaniciSoyad" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="KullaniciSifre" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="KullaniciGirisad" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Mahalleler">
+          <Key>
+            <PropertyRef Name="MahalleID" />
+          </Key>
+          <Property Name="MahalleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MahalleAdı" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="YemekTürü" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="YemekMiktarı_KG" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Sehirler">
+          <Key>
+            <PropertyRef Name="SehirID" />
+          </Key>
+          <Property Name="SehirID" Type="Int32" Nullable="false" />
+          <Property Name="SehirAD" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Veterinerler">
+          <Key>
+            <PropertyRef Name="VeterinerID" />
+          </Key>
+          <Property Name="VeterinerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VeterinerAd" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="VeterinerKonum" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Yemekler">
+          <Key>
+            <PropertyRef Name="YemekID" />
+          </Key>
+          <Property Name="YemekID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YemekTur" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="YemekMiktar_KG_" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Yoneticiler">
+          <Key>
+            <PropertyRef Name="YoneticiID" />
+          </Key>
+          <Property Name="YoneticiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YoneticiAd" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="YoneticiSoyad" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="YoneticiSifre" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="YoneticiGirisAd" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="projeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adres" EntityType="Self.Adres" />
+          <EntitySet Name="Bildirimler" EntityType="Self.Bildirimler" />
+          <EntitySet Name="Hayvanlar" EntityType="Self.Hayvanlar" />
+          <EntitySet Name="Kullanıcılar" EntityType="Self.Kullanıcılar" />
+          <EntitySet Name="Mahalleler" EntityType="Self.Mahalleler" />
+          <EntitySet Name="Sehirler" EntityType="Self.Sehirler" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Veterinerler" EntityType="Self.Veterinerler" />
+          <EntitySet Name="Yemekler" EntityType="Self.Yemekler" />
+          <EntitySet Name="Yoneticiler" EntityType="Self.Yoneticiler" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="projeModelStoreContainer" CdmEntityContainer="projeEntities">
+          <EntitySetMapping Name="Adres">
+            <EntityTypeMapping TypeName="projeModel.Adres">
+              <MappingFragment StoreEntitySet="Adres">
+                <ScalarProperty Name="AdresID" ColumnName="AdresID" />
+                <ScalarProperty Name="Şehir" ColumnName="Şehir" />
+                <ScalarProperty Name="Mahalle" ColumnName="Mahalle" />
+                <ScalarProperty Name="Sokak" ColumnName="Sokak" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bildirimler">
+            <EntityTypeMapping TypeName="projeModel.Bildirimler">
+              <MappingFragment StoreEntitySet="Bildirimler">
+                <ScalarProperty Name="BildirimID" ColumnName="BildirimID" />
+                <ScalarProperty Name="Açıklama" ColumnName="Açıklama" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hayvanlar">
+            <EntityTypeMapping TypeName="projeModel.Hayvanlar">
+              <MappingFragment StoreEntitySet="Hayvanlar">
+                <ScalarProperty Name="HayvanID" ColumnName="HayvanID" />
+                <ScalarProperty Name="Tur" ColumnName="Tur" />
+                <ScalarProperty Name="Yas" ColumnName="Yas" />
+                <ScalarProperty Name="Kilo" ColumnName="Kilo" />
+                <ScalarProperty Name="SağlıkDurumu" ColumnName="SağlıkDurumu" />
+                <ScalarProperty Name="AşıDurumu" ColumnName="AşıDurumu" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanıcılar">
+            <EntityTypeMapping TypeName="projeModel.Kullanıcılar">
+              <MappingFragment StoreEntitySet="Kullanıcılar">
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="KullaniciAd" ColumnName="KullaniciAd" />
+                <ScalarProperty Name="KullaniciSoyad" ColumnName="KullaniciSoyad" />
+                <ScalarProperty Name="KullaniciSifre" ColumnName="KullaniciSifre" />
+                <ScalarProperty Name="KullaniciGirisad" ColumnName="KullaniciGirisad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mahalleler">
+            <EntityTypeMapping TypeName="projeModel.Mahalleler">
+              <MappingFragment StoreEntitySet="Mahalleler">
+                <ScalarProperty Name="MahalleID" ColumnName="MahalleID" />
+                <ScalarProperty Name="MahalleAdı" ColumnName="MahalleAdı" />
+                <ScalarProperty Name="YemekTürü" ColumnName="YemekTürü" />
+                <ScalarProperty Name="YemekMiktarı_KG" ColumnName="YemekMiktarı_KG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sehirler">
+            <EntityTypeMapping TypeName="projeModel.Sehirler">
+              <MappingFragment StoreEntitySet="Sehirler">
+                <ScalarProperty Name="SehirID" ColumnName="SehirID" />
+                <ScalarProperty Name="SehirAD" ColumnName="SehirAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="projeModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Veterinerler">
+            <EntityTypeMapping TypeName="projeModel.Veterinerler">
+              <MappingFragment StoreEntitySet="Veterinerler">
+                <ScalarProperty Name="VeterinerID" ColumnName="VeterinerID" />
+                <ScalarProperty Name="VeterinerAd" ColumnName="VeterinerAd" />
+                <ScalarProperty Name="VeterinerKonum" ColumnName="VeterinerKonum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yemekler">
+            <EntityTypeMapping TypeName="projeModel.Yemekler">
+              <MappingFragment StoreEntitySet="Yemekler">
+                <ScalarProperty Name="YemekID" ColumnName="YemekID" />
+                <ScalarProperty Name="YemekTur" ColumnName="YemekTur" />
+                <ScalarProperty Name="YemekMiktar_KG_" ColumnName="YemekMiktar(KG)" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yoneticiler">
+            <EntityTypeMapping TypeName="projeModel.Yoneticiler">
+              <MappingFragment StoreEntitySet="Yoneticiler">
+                <ScalarProperty Name="YoneticiID" ColumnName="YoneticiID" />
+                <ScalarProperty Name="YoneticiAd" ColumnName="YoneticiAd" />
+                <ScalarProperty Name="YoneticiSoyad" ColumnName="YoneticiSoyad" />
+                <ScalarProperty Name="YoneticiSifre" ColumnName="YoneticiSifre" />
+                <ScalarProperty Name="YoneticiGirisAd" ColumnName="YoneticiGirisAd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
